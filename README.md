@@ -1,7 +1,3 @@
-# zapache
-Zabbix Apache Monitoring Script (from https://www.zabbix.org/wiki/Docs/howto/apache_monitoring_script#Method_3, originally from https://www.zabbix.com/forum/showthread.php?p=62457)
-
-
 # zapache 1.5 - Apache monitoring script for Zabbix
 
 The script version 1.4 and template are taken from https://www.zabbix.com/wiki/templates/apache#method_3
@@ -27,18 +23,18 @@ The script version 1.4 and template are taken from https://www.zabbix.com/wiki/t
 #### On the apache server:
 
 ##### Install files
-        sudo install -o root -g root -m 0755 zapache /var/lib/zabbixsrv/externalscripts/zapache
-        sudo install -d /etc/zabbix_agentd.conf.d
-        echo "Include=/etc/zabbix_agentd.conf.d/" | sudo tee -a /etc/zabbix_agentd.conf
-        sudo install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix_agentd.conf.d/userparameter_zapache.conf
-        sudo install -o root -g root -m 0644 httpd-server-status.conf.sample /etc/httpd/conf.d/httpd-server-status.conf
+	sudo install -o root -g root -m 0755 zapache /var/lib/zabbixsrv/externalscripts/zapache
+	sudo install -d /etc/zabbix_agentd.conf.d
+	echo "Include=/etc/zabbix_agentd.conf.d/" | sudo tee -a /etc/zabbix_agentd.conf
+	sudo install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix_agentd.conf.d/userparameter_zapache.conf
+	sudo install -o root -g root -m 0644 httpd-server-status.conf.sample /etc/httpd/conf.d/httpd-server-status.conf
 ##### Restart
-        sudo service httpd restart
-        sudo service zabbix-agent restart
+	sudo service httpd restart
+	sudo service zabbix-agent restart
 ##### Check if it's working
-        sudo -u zabbix /var/lib/zabbixsrv/externalscripts/zapache Uptime
-        sudo -u zabbix zabbix_agentd -p | grep ^zapache
-        sudo -u zabbix zabbix_get -s localhost -k zapache[Uptime]
+	sudo -u zabbix /var/lib/zabbixsrv/externalscripts/zapache Uptime
+	sudo -u zabbix zabbix_agentd -p | grep ^zapache
+	sudo -u zabbix zabbix_get -s localhost -k zapache[Uptime]
 
 #### On Zabbix server
 
