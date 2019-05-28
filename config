@@ -1,0 +1,22 @@
+
+## Installation
+
+### CentOS 6.4/Zabbix 2.0 from EPEL repo
+
+#### On the apache server:
+
+##### Install files
+
+        install -d /var/lib/zabbixsrv/externalscripts
+        install -o root -g root -m 0755 zapache /var/lib/zabbixsrv/externalscripts/zapache
+        install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix_agentd.conf.d/userparameter_zapache.conf
+        install -o root -g root -m 0644 httpd-server-status.conf.sample /etc/httpd/conf.d/httpd-server-status.conf
+
+##### Restart
+        service httpd restart
+        service zabbix-agent restart
+##### Check if it's working
+        /var/lib/zabbixsrv/externalscripts/zapache Uptime
+        zabbix_agentd -p | grep ^zapache
+        zabbix_get -s localhost -k zapache[Uptime]
+
