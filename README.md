@@ -25,8 +25,7 @@ The script version 1.4 and template are taken from https://www.zabbix.com/wiki/t
 ##### Install files
 	sudo install -o root -g root -m 0755 zapache /var/lib/zabbixsrv/externalscripts/zapache
 	sudo install -d /etc/zabbix_agentd.conf.d
-	echo "Include=/etc/zabbix_agentd.conf.d/" | sudo tee -a /etc/zabbix_agentd.conf
-	sudo install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix_agentd.conf.d/userparameter_zapache.conf
+        sudo install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix/zabbix_agentd.d/userparameter_zapache.conf
 	sudo install -o root -g root -m 0644 httpd-server-status.conf.sample /etc/httpd/conf.d/httpd-server-status.conf
 ##### Restart
 	sudo service httpd restart

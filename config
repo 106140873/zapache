@@ -9,7 +9,7 @@
 
         install -d /var/lib/zabbixsrv/externalscripts
         install -o root -g root -m 0755 zapache /var/lib/zabbixsrv/externalscripts/zapache
-        install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix_agentd.conf.d/userparameter_zapache.conf
+        install -o root -g root -m 0644 userparameter_zapache.conf.sample /etc/zabbix/zabbix_agentd.d/userparameter_zapache.conf
         install -o root -g root -m 0644 httpd-server-status.conf.sample /etc/httpd/conf.d/httpd-server-status.conf
 
 ##### Restart
